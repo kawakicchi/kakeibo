@@ -1,0 +1,34 @@
+spring:
+  profiles:
+    active: local
+
+  messages:
+    basename : i18n/message, i18n/validation, i18n/field
+    cache-seconds : -1
+    encoding : UTF-8
+
+server:
+  port: 7777
+
+
+flyway:
+  enabled : false
+
+---
+spring:
+  profiles: local
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/db_sample2
+    username: sample
+    password: sample
+    driverClassName: org.postgresql.Driver
+
+doma:
+  dialect : POSTGRES
+
+flyway:
+  enabled : true
+  placeholders:
+    owner : sample
+  
